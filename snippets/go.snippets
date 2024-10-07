@@ -1,0 +1,27 @@
+snippet printf
+	fmt.Printf("${1}\\n"${2:})
+
+snippet println
+	fmt.Println(${0})
+
+snippet sca
+	fmt.Scanln(&${0})
+
+snippet swi
+	switch ${1} {
+		case ${2:}:
+		}
+
+snippet for
+	for ${1} {
+		}
+
+snippet init
+	func init(${1}) ${2:} {
+	}
+
+snippet re
+	require "${1}" v0.0.0
+
+snippet require
+	replace "${1}" => "${2:}"

@@ -1,0 +1,571 @@
+snippet imat "Import Material"
+import 'package:flutter/material.dart';
+
+endsnippet
+
+snippet context "BuildContext" i
+BuildContext context
+endsnippet
+
+snippet fn "Async Function"
+void ${1:func}() {
+  ${0}
+}
+
+endsnippet
+
+snippet afn "Async Function"
+Future<void> ${1:func}() async {
+  ${0}
+}
+endsnippet
+
+snippet wfunc "Widget Function"
+Widget build${1:Widget}() {
+  return ${0:Container()};
+}
+endsnippet
+
+snippet el "} else {"
+} else {
+endsnippet
+
+snippet elif "} else if () {"
+} else if (${0}) {
+endsnippet
+
+snippet msa "MaterialStateProperty.all"
+MaterialStateProperty.all(${0}),
+endsnippet
+
+snippet msr "MaterialStateProperty.resolveWith"
+MaterialStateProperty.resolveWith<${1}>((states) => states.contains(MaterialState.pressed) ? null : null),
+endsnippet
+
+snippet wh "Width and height"
+width: ${1},
+height: ${0},
+endsnippet
+
+snippet iwh "Infinity Width and height"
+width: double.infinity,
+height: double.infinity,
+endsnippet
+
+snippet oprs "onPressed"
+final void Function() onPressed;
+endsnippet
+
+snippet pa "Padding"
+padding: EdgeInsets.only(${1:left: ${2:0}}${3:, right: ${4:0}}${5:, top: ${6:0}}${7:, bottom: ${8:0}}),
+endsnippet
+
+snippet paa "Padding All"
+padding: EdgeInsets.all(${1:8.0}),
+endsnippet
+
+snippet pah "Padding Horizontal"
+padding: EdgeInsets.symmetric(horizontal: ${0:0}),
+endsnippet
+
+snippet pav "Padding Vertical"
+padding: EdgeInsets.symmetric(vertical: ${0:0}),
+endsnippet
+
+snippet pat "Padding Top"
+padding: EdgeInsets.only(top: ${0:0}),
+endsnippet
+
+snippet pab "Padding Bottom"
+padding: EdgeInsets.only(bottom: ${0:0}),
+endsnippet
+
+snippet pal "Padding Left"
+padding: EdgeInsets.only(left: ${0:0}),
+endsnippet
+
+snippet par "Padding Right"
+padding: EdgeInsets.only(right: ${0:0}),
+endsnippet
+
+snippet mar "Margin"
+margin: EdgeInsets.only(${1:left: ${2:0}}${3:, right: ${4:0}}${5:, top: ${6:0}}${7:, bottom: ${8:0}}),
+endsnippet
+
+snippet mara "Margin All"
+margin: EdgeInsets.all(${1:8.0}),
+endsnippet
+
+snippet marh "Margin Horizontal"
+margin: EdgeInsets.symmetric(horizontal: ${0:0}),
+endsnippet
+
+snippet marv "Margin Vertical"
+margin: EdgeInsets.symmetric(vertical: ${0:0}),
+endsnippet
+
+snippet mart "Margin Top"
+margin: EdgeInsets.only(top: ${0:0}),
+endsnippet
+
+snippet marb "Margin Bottom"
+margin: EdgeInsets.only(bottom: ${0:0}),
+endsnippet
+
+snippet marl "Margin Left"
+margin: EdgeInsets.only(left: ${0:0}),
+endsnippet
+
+snippet marr "Margin Right"
+margin: EdgeInsets.only(right: ${0:0}),
+endsnippet
+
+snippet marv "Margin Vertical"
+margin: EdgeInsets.only(top: ${1:0}, bottom: ${1}),${0}
+endsnippet
+
+snippet br "BorderRadius"
+borderRadius: BorderRadius.all(Radius.circular(${0})),
+endsnippet
+
+snippet sbr "Shape with BorderRadius"
+shape: RoundedRectangleBorder(
+  borderRadius: BorderRadius.all(Radius.circular(${0})),
+),
+endsnippet
+
+snippet dur "Duration"
+duration: const Duration(milliseconds: ${0}),
+endsnippet
+
+snippet dec "BoxDecoration"
+decoration: BoxDecoration(
+  color: ${1},
+),${0}
+endsnippet
+
+snippet ba "BorderRadius"
+border: Border.all(
+  width: ${1},
+  color: ${2},
+),
+endsnippet
+
+snippet mai "MainAxis"
+mainAxisAlignment: MainAxisAlignment.${0}
+endsnippet
+
+snippet crs "CrossAxis"
+crossAxisAlignment: CrossAxisAlignment.${0}
+endsnippet
+
+snippet mainmin "MainAxisSize.min"
+mainAxisSize: MainAxisSize.min
+endsnippet
+
+snippet row "Row"
+Row(children: [
+  ${0}
+]),
+endsnippet
+
+snippet rowa "Row with alignment"
+Row(
+  mainAxisAlignment: MainAxisAlignment.${1:start},
+  crossAxisAlignment: CrossAxisAlignment.${2:start},
+  children: [
+    ${0}
+  ],
+),
+endsnippet
+
+snippet col "Column"
+Column(children: [
+  ${0}
+]),
+endsnippet
+
+snippet cola "Column with alignment"
+Column(
+  mainAxisAlignment: MainAxisAlignment.${1:start},
+  crossAxisAlignment: CrossAxisAlignment.${2:start},
+  children: [
+    ${0}
+  ],
+),
+endsnippet
+
+snippet sta "Stack"
+Stack(children: [
+  ${0}
+]),
+endsnippet
+
+snippet cs "const SizedBox()"
+const SizedBox()${0}
+endsnippet
+
+snippet co "Container"
+Container()${0}
+endsnippet
+
+snippet con "Container"
+Container(
+  child: ${0},
+)
+endsnippet
+
+snippet exp "Expanded"
+Expanded(
+  child: ${0},
+),
+endsnippet
+
+snippet flx "Flexible"
+Flexible(
+  child: ${0},
+),
+endsnippet
+
+snippet cons "Container Sized"
+Container(
+  width: ${1},
+  height: ${2},
+  child: ${0},
+)
+endsnippet
+
+snippet cen "Center"
+Center(child: ${0})
+endsnippet
+
+snippet t "Text"
+Text("${1}"),${0}
+endsnippet
+
+snippet ts "Text with text style"
+Text(${1}, style: ${2}),${0}
+endsnippet
+
+snippet rts "Rich Text with text style"
+RichText(
+  text: TextSpan(children: [
+    TextSpan(text: ${1}, style: ${2}),${0}
+  ]),
+),
+endsnippet
+
+snippet ss "TextStyle"
+TStyle(c: ${1}, s: ${2:14}, w: F.w${3:5})${0}
+endsnippet
+
+
+snippet nbuilder "NotifierBuilder"
+NotifierBuilder(
+  notifier: null,
+  builder: (context) {
+    return Container();
+  },
+)
+endsnippet
+
+snippet sw "SizedBox with width"
+const SizedBox(width: ${1}),${0}
+endsnippet
+
+snippet sh "SizedBox with height"
+const SizedBox(height: ${1}),${0}
+endsnippet
+
+snippet swh "SizedBox with width and height"
+SizedBox(width: ${1}, height: ${2}),${0}
+endsnippet
+
+snippet scaf "Scaffold"
+Scaffold(
+  appBar: AppBar(
+    title: Text('${1:Title}'),
+  ),
+  body: ${2:Container()}${0},
+);
+endsnippet
+
+# snippet sf "New Stateful Widget" b
+# class ${1:name} extends StatefulWidget {
+#   ${1:name}({super.key});
+#   @override
+#   _${1/([A-Za-z_]+).*/$1/}State createState() => _${1/([A-Za-z_]+).*/$1/}State();
+# }
+# class _${1/([A-Za-z_]+).*/$1/}State extends State<${1/([A-Za-z_]+).*/$1/}> {
+#   @override
+#   Widget build(context) {
+#     return ${2:Container()};
+#   }
+# }
+# endsnippet
+
+snippet sf "New Stateful Widget" b
+class ${1:MyState} extends StatefulWidget {
+  $1({super.key});
+  @override
+  _$1State createState() => _$1State();
+}
+class _$1State extends State<$1> {
+  @override
+  Widget build(context) {
+    return ${2:Container()};
+  }
+}
+endsnippet
+
+snippet sl "New Stateless Widget" b
+class ${1:name} extends StatelessWidget {
+  ${1:name}({super.key});
+  @override
+  Widget build(context) {
+    return ${2:Container()};
+  }
+}
+endsnippet
+
+snippet wt "Colors.white"
+color: colorWhite,
+endsnippet
+
+snippet inits "initState"
+@override
+void initState() {
+	${0}
+  super.initState();
+}
+endsnippet
+
+snippet dispose "dispose"
+@override
+void dispose() {
+  ${0:}
+  super.dispose();
+}
+endsnippet
+
+snippet listv "ListView.builder"
+ListView.builder(
+  itemCount: ${1:1},
+  itemBuilder: (context, index) {
+    return ${2:Container()};
+  },
+)
+endsnippet
+
+snippet future "Future Builder"
+FutureBuilder(
+  future: ${1:Future},
+  initialData: ${2:InitialData},
+  builder: (context, snapshot) {
+    if (snapshot.connectionState == ConnectionState.done)
+      return ${3:Container();}
+    return ${4:Container();}
+  },
+)
+endsnippet
+
+snippet stream "Stream Builder"
+StreamBuilder<${1:dynamic}>(
+  stream: ${2:yourStream},
+  builder: (context, snapshot) {
+    if (snapshot.hasData) {
+      // TODO: do something with the data
+      return ${3:Container()};
+    } else if (snapshot.hasError) {
+      // TODO: do something with the error
+      return ${4:Text(snapshot.error.toString())};
+    }
+    // TODO: the data is not ready, show a loading indicator
+    return ${5:Center(child: CircularProgressIndicator())};
+  },
+),
+endsnippet
+
+snippet try "try catch"
+try {
+  ${0}
+} catch (e, stack) {
+  print(e);
+  print(stack);
+}
+endsnippet
+
+snippet for "standard for loop without brackets"
+for (var ${1:i} = 0; ${1:i} < ${2:n}; ++${1:i})
+  ${3:// TODO}
+endsnippet
+
+snippet forr "standard for loop"
+for (var ${1:i} = 0; ${1:i} < ${2:n}; ++${1:i}) {
+  ${3:// TODO}
+}
+endsnippet
+
+snippet fori "For in loop"
+for (var ${1:item} in ${2:object}) {
+  ${3:// TODO}
+}
+endsnippet
+
+snippet ssm "Multi-line Set State"
+setState(() {
+  ${1:// TODO}
+});
+endsnippet
+
+snippet sss "Single-line Set State"
+setState(() => ${1:/* TODO */} );
+endsnippet
+
+snippet sst "Empty Set State"
+setState(() {})${0}
+endsnippet
+
+snippet rf "Request focus"
+FocusScope.of(context).requestFocus(${1:FocusNode()})${0}
+endsnippet
+
+snippet rfn "Request focusnode (new)"
+FocusScope.of(context).requestFocus(FocusNode());
+endsnippet
+
+snippet push "Navigator push"
+Navigator.of(context).push(
+  MaterialPageRoute(builder: (context) => ${1:Page()}),
+)${0}
+endsnippet
+
+snippet pop "Navigator pop"
+Navigator.of(context).pop(${1})${0}
+endsnippet
+
+snippet rmb "RawMaterialButton"
+RawMaterialButton(
+  elevation: ${1:0},
+	onPressed: () {},
+  shape: RoundedRectangleBorder(
+    borderRadius: BorderRadius.all(Radius.circular(${2:5})),
+  ),
+  fillColor: ${3:Colors.transparent},
+  child: ${5:Container()},
+),
+endsnippet
+
+snippet mo "Get MediaQuery"
+MediaQuery.of(context)${0}
+endsnippet
+
+snippet st "print();"
+print(${0});
+endsnippet
+
+snippet sbj "Behavior subject"
+Stream<${1:int}> get ${2:my}Stream => _${2:my}Subject.stream;
+BehaviorSubject<${1}> _${2:my}Subject;
+_${2:my}Subject = BehaviorSubject<${1}>();
+endsnippet
+
+snippet f "Function"
+() => 
+endsnippet
+
+snippet adelay "await Future.delayed"
+await Future.delayed(const Duration(milliseconds: ${1:300}));
+endsnippet
+
+snippet delay "Future.delayed"
+Future.delayed(const Duration(milliseconds: ${1:300})).then((_) {
+	${2}
+});
+endsnippet
+
+snippet now "DateTime.now()"
+DateTime.now()
+endsnippet
+
+snippet rt "required this."
+required this.${1}, ${0}
+endsnippet
+
+snippet posr "Positioned right"
+Positioned(
+  top: ${1:0},
+  right: ${2:0},
+  bottom: ${3:0},
+  child: ${0:Container()},
+),
+endsnippet
+
+snippet posl "Positioned left"
+Positioned(
+  top: ${1:0},
+  left: ${2:0},
+  bottom: ${3:0},
+  child: ${0:Container()},
+),
+endsnippet
+
+snippet post "Positioned top"
+Positioned(
+  top: ${1:0},
+  left: ${2:0},
+  right: ${3:0},
+  child: ${0:Container()},
+),
+endsnippet
+
+snippet posb "Positioned bottom"
+Positioned(
+  bottom: ${1:0},
+  left: ${2:0},
+  right: ${3:0},
+  child: ${0:Container()},
+),
+endsnippet
+
+snippet postr "Positioned top right"
+Positioned(
+  top: ${1:0},
+  right: ${2:0},
+  child: ${3:Container()},
+),
+endsnippet
+
+snippet posbl "Positioned bottom left"
+Positioned(
+  bottom: ${1:0},
+  left: ${2:0},
+  child: ${3:Container()},
+),
+endsnippet
+
+snippet posbr "Positioned bottom right"
+Positioned(
+  bottom: ${1:0},
+  right: ${2:0},
+  child: ${3:Container()},
+),
+endsnippet
+
+snippet postl "Positioned top left"
+Positioned(
+  top: ${1:0},
+  left: ${2:0},
+  child: ${3:Container()},
+),
+endsnippet
+
+snippet fa "fix add type"
+// TYPEADD
+endsnippet
+
+snippet .f "fix add type" i
+.forEach((${1:item}) {
+	${0:// TODO}
+});
+endsnippet

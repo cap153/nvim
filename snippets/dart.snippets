@@ -1,0 +1,31 @@
+snippet pri
+	print(${0})
+
+snippet stful
+	import 'package:flutter/material.dart';
+
+	class ${1:MyWidget} extends StatefulWidget {
+		const $1({Key? key}) : super(key: key);
+
+		@override
+		_$1State createState() => _$1State();
+	}
+
+	class _$1State extends State<$1> {
+		@override
+		Widget build(BuildContext context) {
+			return ${2:Container()};
+		}
+	}
+
+snippet stless
+	import 'package:flutter/material.dart';
+
+	class ${1:name} extends StatelessWidget {
+		const $1({Key? key}) : super(key: key);
+
+		@override
+		Widget build(BuildContext context) {
+			return ${2:Container()};
+		}
+	}

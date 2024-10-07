@@ -1,0 +1,18 @@
+snippet sec
+	-- ===
+	-- === ${0}
+	-- ===
+
+snippet return
+	return {
+		${1}
+		config = function()
+			${2}
+		end
+	}
+
+snippet require_keymap nvim的键盘映射调用
+	local map = require("core.keymap")
+
+snippet require_plugins nvim的插件快速调用
+	require("lazy.plugins.${0}"),
