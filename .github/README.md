@@ -19,4 +19,4 @@ paru -S deno webkit2gtk-4.1
 paru -S translate-shell
 ```
 
-![效果](效果.jpg) 
+<img width="2560" height="1600" alt="Screenshot_2026-04-26-08-54-37-27_00df01c412509efb9bd6450c382822af" src="https://github.com/user-attachments/assets/f0757370-0c37-4a31-9a15-b40d87f818e0" />
