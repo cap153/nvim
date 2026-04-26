@@ -20,16 +20,14 @@ vim.api.nvim_create_autocmd({
 		vim.schedule(function()
 			PackUtils.load(P, function()
 				-- Option 2: nvim lsp as LSP client
-				local capabilities = vim.lsp.protocol.make_client_capabilities()
-				capabilities.textDocument.foldingRange = {
-					dynamicRegistration = false,
-					lineFoldingOnly = true,
-				}
-				local language_servers = vim.lsp.get_clients() -- or list servers manually like {'gopls', 'clangd'}
-				for _, ls in ipairs(language_servers) do
-					require("lspconfig")[ls].setup({
-						capabilities = capabilities,
-					})
+				local orig_make_client_capabilities = vim.lsp.protocol.make_client_capabilities
+				vim.lsp.protocol.make_client_capabilities = function()
+					local caps = orig_make_client_capabilities()
+					caps.textDocument.foldingRange = {
+						dynamicRegistration = false,
+						lineFoldingOnly = true
+					}
+					return caps
 				end
 				require("ufo").setup({})
 				-- Option 3: treesitter as a main provider instead

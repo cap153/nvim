@@ -2,18 +2,9 @@
 -- === 光标移动neovide
 -- ===
 -- 判断 CPU 架构
-local arch = jit and jit.arch or ""
-local is_arm = arch:match("arm") or arch:match("aarch64")
-if is_arm then
-	vim.o.guifont = "ComicShannsMono Nerd Font:h24"
-end
 vim.keymap.set('n', '<sC-c>', '"+y', { noremap = true })
 vim.keymap.set('v', '<sC-c>', '"+y', { noremap = true })
 if vim.g.neovide then
-	if not is_arm then
-		vim.env.HTTP_PROXY = "http://127.0.0.1:7897"
-		vim.env.HTTPS_PROXY = "http://127.0.0.1:7897"
-	end
 	-- https://github.com/neovide/neovide/issues/1282
 	vim.keymap.set('n', '<sC-v>', '"+p', { noremap = true })
 	vim.keymap.set('v', '<sC-v>', '"+P', { noremap = true })
@@ -22,9 +13,15 @@ if vim.g.neovide then
 	vim.keymap.set('t', '<sC-v>', '<C-\\><C-n>"+Pi', { noremap = true })
 	vim.g.neovide_opacity = 0.75
 	-- vim.o.guifont = "ComicShannsMono Nerd Font:h16" -- text below applies for VimScript
-	vim.o.guifont = "Ioskeley Mono:h15" -- text below applies for VimScript
+	vim.o.guifont = "Ioskeley_Mono,Noto_Sans_CJK_SC:h15" -- text below applies for VimScript
 	-- 全屏，可以在i3和sway的配置中设置
 	-- vim.g.neovide_fullscreen = true
+	if not IS_ARM then
+		vim.env.HTTP_PROXY = "http://127.0.0.1:7897"
+		vim.env.HTTPS_PROXY = "http://127.0.0.1:7897"
+	else
+		vim.o.guifont = "Ioskeley_Mono,Noto_Sans_CJK_SC:h24"
+	end
 end
 -- ===
 -- === map function

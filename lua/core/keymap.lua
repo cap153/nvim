@@ -7,9 +7,7 @@ local function mapkey(mode, lhs, rhs, opts)
 end
 
 local function mapcmd(key, cmd)
-	vim.keymap.set("n", key, function()
-		vim.cmd(cmd)
-	end, { silent = true })
+	vim.keymap.set("n", key, "<Cmd>" .. cmd .. "<CR>", { silent = true })
 end
 
 local function maplua(modes, key, action, desc)
@@ -133,10 +131,10 @@ mapkey({ "n", "x", "o" }, "<LEADER>n", "<C-w>h")
 mapkey({ "n", "x", "o" }, "<LEADER>i", "<C-w>l")
 
 -- 使用s + 新方向键 进行分屏
-mapcmd("su", "set nosplitbelow<CR>:split<CR>:set splitbelow")
-mapcmd("se", "set splitbelow<CR>:split")
-mapcmd("sn", "set nosplitright<CR>:vsplit<CR>:set splitright")
-mapcmd("si", "set splitright<CR>:vsplit")
+mapcmd("su", "leftabove split")   -- 在上方分屏
+mapcmd("se", "rightbelow split")  -- 在下方分屏
+mapcmd("sn", "leftabove vsplit")  -- 在左侧分屏
+mapcmd("si", "rightbelow vsplit") -- 在右侧分屏
 
 -- 使用方向键来调整窗口大小
 mapcmd("<up>", "res +5")
@@ -304,9 +302,7 @@ function map:key(mode, lhs, rhs)
 end
 
 function map:cmd(key, cmd)
-	vim.keymap.set("n", key, function()
-		vim.cmd(cmd)
-	end, { silent = true })
+	vim.keymap.set("n", key, "<Cmd>" .. cmd .. "<CR>", { silent = true })
 end
 
 function map:lua(key, txt_or_func)

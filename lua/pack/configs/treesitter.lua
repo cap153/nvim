@@ -14,7 +14,7 @@ local ensure_installed = {
 	"python",
 	"lua",
 	"markdown",
-	"bash",
+	"sh",
 	"java",
 }
 

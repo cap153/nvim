@@ -1,12 +1,8 @@
 -- === LSP 核心配置 (Lspconfig + Mason) ===
 if vim.g.vscode then return end
 
--- 环境探测：判断 CPU 架构，决定安装哪些 LSP
-local arch = jit and jit.arch or ""
-local is_arm = arch:match("arm") or arch:match("aarch64")
-
 local servers = { "lua_ls", "rust_analyzer", "pylsp", "denols", }
-if not is_arm then
+if not IS_ARM then
 	vim.list_extend(servers, { "marksman", "svelte", "cssls", "html" })
 end
 

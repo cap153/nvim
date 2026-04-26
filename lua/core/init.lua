@@ -71,6 +71,10 @@ autocmd BufLeave *  :silent !fcitx5-remote -c
 ]])
 -- 意为: 当 进入插入模式、创建Buf、进入Buf、离开Buf 时 触发shell命令 fcitx-remote -c 关闭输入法，改为英文输入
 
+-- 架构判断
+local arch = jit and jit.arch or ""
+_G.IS_ARM = arch:match("arm") or arch:match("aarch64") ~= nil
+
 -- 日志高亮关键字
 vim.filetype.add({
 	extension = { -- 后缀名

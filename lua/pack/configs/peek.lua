@@ -13,11 +13,16 @@ vim.api.nvim_create_user_command("PeekToggle", function()
 	local peek = require("peek")
 	if not peek.is_open() and vim.bo[vim.api.nvim_get_current_buf()].filetype == 'markdown' then
 		PackUtils.load(P, function()
+			local app = { "chromium", "--app=http://localhost:9000/?theme=dark", "--incognito" }
+			if IS_ARM then
+				app = { "chromium", "--no-sandbox", "--app=http://localhost:9000/?theme=dark", "--incognito", "--test-type",
+					"--force-device-scale-factor=1.75" }
+			end
 			require("peek").setup({
 				port = 9000,
 				-- app = { "zen", "-private-window" },
 				-- app = { "firefox-esr", "-private-window" },
-				app = { "chromium", "--app=http://localhost:9000/?theme=dark", "--incognito" },
+				app = app
 			})
 		end)
 		peek.open()
