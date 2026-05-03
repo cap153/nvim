@@ -18,6 +18,9 @@ vim.api.nvim_create_user_command("PeekToggle", function()
 				app = { "chromium", "--no-sandbox", "--app=http://localhost:9000/?theme=dark", "--incognito", "--test-type",
 					"--force-device-scale-factor=1.75" }
 			end
+			if vim.fn.has("wsl") == 1 then
+				app = { "/mnt/d/my_program/chrome-win/chrome.exe", "--no-sandbox", "--app=http://localhost:9000/?theme=dark", "--incognito", "--test-type" }
+			end
 			require("peek").setup({
 				port = 9000,
 				-- app = { "zen", "-private-window" },

@@ -19,6 +19,9 @@ if vim.g.neovide then
 	if not IS_ARM then
 		vim.env.HTTP_PROXY = "http://127.0.0.1:7897"
 		vim.env.HTTPS_PROXY = "http://127.0.0.1:7897"
+		if vim.fn.has("wsl") == 1 then
+			vim.o.guifont = "Ioskeley_Mono,Noto_Sans_CJK_SC:h12.5"
+		end
 	else
 		vim.o.guifont = "Ioskeley_Mono,Noto_Sans_CJK_SC:h24"
 	end
