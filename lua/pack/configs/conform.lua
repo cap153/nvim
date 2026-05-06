@@ -14,11 +14,15 @@ local formatters_by_ft = {
 	python = { "isort", "black" },
 	rust = { "rust-analyzer", lsp_format = "fallback" },
 	toml = { "templ" },
-	html = { "djlint" },
 	sh = { "shfmt" },
 	zsh = { "shfmt" },
+	xml = { "deno_fmt" },
+	yml = { "deno_fmt" },
+	yaml = { "deno_fmt" },
+	html = { "deno_fmt" },
 	typescript = { "deno_fmt" },
 	javascript = { "deno_fmt" },
+	json = { "deno_fmt" },
 	-- markdown = { "deno_fmt_markdown" },
 }
 
