@@ -39,6 +39,8 @@
 			"\t-- \"VimEnter\",                   -- 核心初始化完成",
 			"\t-- \"UIEnter\",                   -- vim.schedule(function()",
 			"}, {",
+			"\tonce = true,",
+			"\t-- group = vim.api.nvim_create_augroup(\"<++>\", { clear = true }),",
 			"\tcallback = function()",
 			"\t\tPackUtils.load(P, function()",
 			"\t\t\t$7",

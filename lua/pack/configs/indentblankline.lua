@@ -8,6 +8,7 @@ local P = {
 vim.api.nvim_create_autocmd({
 	"BufReadPost", "BufNewFile" -- 处理普通的文本文件时也能显示基础线条
 }, {
+	once = true,
 	callback = function()
 		PackUtils.load(P, function()
 			local highlight = {

@@ -13,6 +13,7 @@ PackUtils.setup_listener(P.name, P.build_cmd)
 vim.api.nvim_create_autocmd({
 	"UIEnter", -- vim.schedule(function()
 }, {
+	once = true,
 	callback = function()
 		vim.schedule(function()
 			PackUtils.load(P, function()

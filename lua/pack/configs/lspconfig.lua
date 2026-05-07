@@ -28,6 +28,7 @@ vim.keymap.set("n", "<leader>=", vim.diagnostic.goto_next, opts)  -- <space>+跳
 
 -- 懒加载触发器：当打开文件时触发
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+	once = true,
 	callback = function()
 		PackUtils.load(P, function()
 			-- === 基础依赖初始化 (Mason) ===

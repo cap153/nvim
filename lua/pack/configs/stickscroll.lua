@@ -9,6 +9,7 @@ local P = {
 vim.api.nvim_create_autocmd({
 	"FileType"
 }, {
+	once = true,
 	callback = function()
 		PackUtils.load(P, function()
 			-- 前往上下文开始处

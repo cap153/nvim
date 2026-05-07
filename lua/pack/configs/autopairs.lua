@@ -9,6 +9,7 @@ local P = {
 vim.api.nvim_create_autocmd({
 	"InsertEnter"
 }, {
+	once = true,
 	callback = function()
 		PackUtils.load(P, function()
 			require('nvim-autopairs').setup({

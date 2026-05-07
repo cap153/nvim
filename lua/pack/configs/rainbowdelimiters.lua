@@ -2,11 +2,12 @@
 local P = {
 	name = "rainbow-delimiters.nvim",
 }
---
+
 -- 懒加载触发器
 vim.api.nvim_create_autocmd({
 	"FileType",
 }, {
+	once = true,
 	callback = function()
 			PackUtils.load(P, function()
 				vim.api.nvim_set_hl(0, "RainbowDelimiterRed", { fg = "#E06C75" })

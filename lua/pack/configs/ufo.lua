@@ -16,6 +16,7 @@ local P = {
 vim.api.nvim_create_autocmd({
 	"UIEnter", -- vim.schedule(function()
 }, {
+	once = true,
 	callback = function()
 		vim.schedule(function()
 			PackUtils.load(P, function()

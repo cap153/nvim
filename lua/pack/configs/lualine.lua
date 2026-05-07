@@ -8,50 +8,63 @@ local P = {
 	},
 }
 
--- 懒加载触发器
+-- 将 Lualine 的配置逻辑封装成一个独立函数，方便重复调用
+local function setup_lualine_with_blend()
+	-- 确保 lualine 已经加载，如果没有加载则不执行（防止 ColorScheme 先于插件加载触发报错）
+	local has_lualine, lualine = pcall(require, "lualine")
+	if not has_lualine then return end
+
+	-- ==================== 【动态融合逻辑】 ====================
+	local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
+	local editor_bg = normal_hl.bg and string.format("#%06x", normal_hl.bg) or "NONE"
+
+	-- 每次需要重新 require('lualine.themes.auto') 来获取基于新主题生成的颜色
+	package.loaded["lualine.themes.auto"] = nil
+	local blended_theme = require("lualine.themes.auto")
+
+	for _, mode in pairs(blended_theme) do
+		for _, section in pairs(mode) do
+			if type(section) == "table" then
+				section.bg = editor_bg
+			end
+		end
+	end
+
+	lualine.setup({
+		options = {
+			theme = blended_theme,
+			globalstatus = true,
+			always_divide_middle = false,
+			component_separators = { left = "", right = "" },
+			section_separators = { left = "", right = "" },
+		},
+		sections = {
+			lualine_a = {},
+			lualine_b = { "branch", "diff", "diagnostics" },
+			lualine_c = { { "lsp_status", color = { fg = "#6C6E81" } } },
+			lualine_x = {},
+			lualine_y = {},
+			lualine_z = { "progress" },
+		},
+	})
+end
+
+-- 懒加载触发器 (只负责初次加载)
 vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+	once = true,   -- 只需要触发一次来加载插件
 	callback = function()
 		PackUtils.load(P, function()
-			-- ==================== 【魔法时刻：动态融合主题】 ====================
-			-- 获取当前 Neovim 的真实背景色 (Normal 高亮组)
-			local normal_hl = vim.api.nvim_get_hl(0, { name = "Normal" })
-			-- 如果是透明背景，bg 返回 nil，我们赋值为 "NONE"；否则转换为 HEX 颜色码
-			local editor_bg = normal_hl.bg and string.format("#%06x", normal_hl.bg) or "NONE"
-			-- 加载 Lualine 的自动主题，它会自动为你提取当前主题的前景色(文字颜色)
-			local blended_theme = require("lualine.themes.auto")
-			-- 遍历主题的所有的模式 (normal, insert, visual...) 和区块 (a, b, c...)
-			for _, mode in pairs(blended_theme) do
-				for _, section in pairs(mode) do
-					if type(section) == "table" then
-						-- 强行将它们的背景色全部涂成和编辑器完全一样的颜色
-						section.bg = editor_bg
-					end
-				end
-			end
-			-- ====================================================================
-			require("lualine").setup({
-				options = {
-					-- 挂载我们刚刚特制的融合主题
-					theme = blended_theme,
-					-- 全局唯一状态栏 (不仅底部更干净，而且背景融合得更彻底)
-					globalstatus = true,
-
-					always_divide_middle = false,
-					component_separators = { left = "", right = "" },
-					section_separators = { left = "", right = "" },
-				},
-				sections = {
-					lualine_a = {},
-					lualine_b = { "branch", "diff", "diagnostics" },
-					lualine_c = { {
-						"lsp_status",
-						color = { fg = "#6C6E81" },
-					}, },
-					lualine_x = {},
-					lualine_y = {},
-					lualine_z = { "progress" },
-				},
-			})
+			setup_lualine_with_blend()
 		end)
+	end
+})
+
+-- 主题切换触发器 (负责在主题改变时刷新)
+vim.api.nvim_create_autocmd("ColorScheme", {
+	-- 防止配置堆叠
+	group = vim.api.nvim_create_augroup("LualineSync", { clear = true }),
+	callback = function()
+		-- 如果插件已经加载了，就重新应用配置
+		setup_lualine_with_blend()
 	end
 })
