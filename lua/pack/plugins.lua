@@ -22,6 +22,8 @@ local specs = {
 	'https://github.com/lukas-reineke/indent-blankline.nvim',
 	-- rainbowdelimiters.lua 彩虹括号
 	'https://github.com/HiPhish/rainbow-delimiters.nvim',
+	-- illuminate.lua 高亮所有引用
+	'https://github.com/RRethy/vim-illuminate',
 	-- gitsigns.lua 突出增、删、改过的行
 	'https://github.com/lewis6991/gitsigns.nvim',
 	-- ufo.lua 折叠插件

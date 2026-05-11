@@ -121,6 +121,10 @@
       "rev": "0e6d41d55ad147407e4ba00a292973de8db0b836",
       "src": "https://github.com/jiaoshijie/undotree"
     },
+    "vim-illuminate": {
+      "rev": "0d1e93684da00ab7c057410fecfc24f434698898",
+      "src": "https://github.com/RRethy/vim-illuminate"
+    },
     "vim-suda": {
       "rev": "c492741b4679b3cdd4d9e34138209784e061d916",
       "src": "https://github.com/lambdalisue/vim-suda"
