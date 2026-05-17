@@ -12,7 +12,7 @@ local P = {
 -- 提取出统一的配置变量
 local formatters_by_ft = {
 	python = { "isort", "black" },
-	rust = { "rust-analyzer", lsp_format = "fallback" },
+	rust = { "rustfmt", lsp_format = "fallback" },
 	toml = { "templ" },
 	sh = { "shfmt" },
 	zsh = { "shfmt" },

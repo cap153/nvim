@@ -16,6 +16,9 @@ local ensure_installed = {
 	"markdown",
 	"sh",
 	"java",
+	"javascript",
+	"html",
+	"css",
 }
 
 -- 在 FileType 确定时，检查、安装并启动

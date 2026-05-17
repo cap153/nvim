@@ -1,4 +1,4 @@
--- === 插件描述 ===
+-- === 高亮当前文件所有引用 ===
 if vim.g.vscode then return end
 
 vim.keymap.set(

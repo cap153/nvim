@@ -1,9 +1,18 @@
 -- === LSP 核心配置 (Lspconfig + Mason) ===
 if vim.g.vscode then return end
 
-local servers = { "lua_ls", "rust_analyzer", "pylsp", "denols", }
+local servers = {
+	"lua_ls",
+	"rust_analyzer",
+	"pylsp",
+	"vtsls", -- javascript
+}
 if not IS_ARM then
-	vim.list_extend(servers, { "marksman", "svelte", "cssls", "html" })
+	vim.list_extend(servers, {
+		"marksman",
+		"svelte",
+		"cssls",
+		"html" })
 end
 
 -- 插件配置清单
